@@ -1,0 +1,35 @@
+How does rails communicate with the database?  Please be thorough in discussing all the config files and pieces of rails necessary to communicate with the database.
+
+Rails comes packaged with ActiveRecord, which is an ORM. This compiles Ruby into SQL so developers don't have to write SQL in Rails. The routes are defined in a the config folder. When a user visits a URL, the routes directs the request to the corresponding controller action. In the controller, methods from the models are called to retrieve information. All models inherit from ActiveRecord::Base, which includes methods to access information from the database. 
+
+What is a resource?
+It's an object that you can create, read, update, or destroy (CRUD). Typically, for every resource you'll have a controller, model, routes and views.
+
+What are the standard RESTful routes for a resource?
+Index, New, Create, Show, Edit, Update, Destroy
+
+What is CRUD?
+It stands for Create, Read, Update, Delete. These are the basic actions you can perform on a resource.
+
+What is REST?
+REST stands for representational state transfer. RESTful routes are those that follow a standard pattern of URLs that match up to controller actions and views.
+
+What is the difference between CRUD and REST?
+CRUD describes the basic actions for resources and REST a convention for routes.
+
+Describe the flow of a request from a users browser through the rails stack and back.
+User visits a page, let's say /posts for a blog.
+The request goes through the routes.rb file and gets matched with a controller action. 
+The code in that action executes, often calling methods from the models, which access data from the database.
+The data retrieved is stored in instance variables that get passed to the view.
+The view contains HTML which is sent as a response back to the client, and renders on the page.
+
+What are HTTP verbs?
+Get, Put, Post, Delete. They refer to different requests made by the client to the server.
+Get - get data.
+Put - update data.
+Post - add data to database.
+Delete - delete data.
+
+Why do we use migrations.
+Migrations perform a series of instructions in SQL to create, edit and delete database tables. This is a good structure, because a database structure can be recreated in different environments without storing the actual database. Migrations all have timestamps so they are run in the correct order.
